@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+# Install packages for Development
+sudo pacman -Sy curl wget git vim openssh xclip keychain tmux fish yarn xsel spectacle gimp docker docker-compose
+
+# Setup fcitx
+sudo pacman -Sy fcitx fcitx-mozc fcitx-configtool fcitx-gtk2 fcitx-gtk3
+(echo 'export XMODIFIERS="@im=fcitx"'; echo 'export XMODIFIER="@im=fcitx"'; echo 'export GTK_IM_MODULE=fcitx'; echo 'export QT_IM_MODULE=fcitx'; echo 'export DefaultIMModule=fcitx') >> ~/.xprofile
+(echo 'export GTK_IM_MODULE=fcitx'; echo 'export XMODIFIERS=@im=fcitx'; echo 'export QT_IM_MODULE=fcitx') >> ~/.bash_profile
+
+# make directory for AUR
+mkdir Aurs
+
+# Setup Yay
+cd $HOME
+cd Aurs && git clone https://aur.archlinux.org/yay.git
+cd yay && makepkg -si
+cd $HOME
+
+# Install desktop applications
+sudo yay -Sy google-chrome visual-studio-code-bin visual-studio-code-insiders slack-desktop zoom
+
+# Set default browser
+xdg-mime default google-chrome.desktop text/html
+xdg-mime default google-chrome.desktop x-scheme-handler/http
+xdg-mime default google-chrome.desktop x-scheme-handler/https
+
+# Setup anyenv
+git clone https://github.com/anyenv/anyenv ~/.anyenv
+(echo 'export PATH="$HOME/.anyenv/bin:$PATH"'; echo 'eval "$(anyenv init -)"') >> ~/.bash_profile
+~/.anyenv/bin/anyenv init
+
+# Setup for GitHub
+ssh-keygen -t rsa -b 4096 -C "crazy.rendezvous.m.jun@gmail.com" -f ~/.ssh/github_id_rsa
+echo 'eval $(keychain --eval --agents ssh -Q --quiet ~/.ssh/github_id_rsa)' >> ~/.bashrc
+cp ../ssh/config ~/.ssh/
+
+## Add public key to GitHub
+## xclip -sel clip < ~/.ssh/github_id_rsa.pub
+
+exit 0
