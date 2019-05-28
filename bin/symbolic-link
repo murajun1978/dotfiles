@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# For Bundler
+mkdir ~/.bundle
+ln -s ~/dotfiles/bundler/config ~/.bundle/config
+
+# For gem
+ln -s ~/dotfiles/gem/gemrc ~/.gemrc
+
+# For git
+ln -s ~/dotfiles/git/gitconfig ~/.gitconfig
+
+# For tmux
+ln -s ~/dotfiles/tmux/tmux.conf ~/.tmux.conf

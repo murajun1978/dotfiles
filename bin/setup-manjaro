@@ -38,4 +38,7 @@ cp ../ssh/config ~/.ssh/
 ## Add public key to GitHub
 ## xclip -sel clip < ~/.ssh/github_id_rsa.pub
 
+# Add symbolic link
+./symbolic-link
+
 exit 0
