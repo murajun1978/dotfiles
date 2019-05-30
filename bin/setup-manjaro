@@ -5,6 +5,9 @@ cd `dirname $0`
 # Install packages for Development
 sudo pacman -Sy curl wget git vim openssh xclip keychain tmux fish yarn xsel spectacle gimp docker docker-compose
 
+# Install fonts
+sudo pacman -Sy ttf-fira-code
+
 # Setup fcitx
 sudo pacman -Sy fcitx fcitx-mozc fcitx-configtool fcitx-gtk2 fcitx-gtk3
 (echo 'export XMODIFIERS="@im=fcitx"'; echo 'export XMODIFIER="@im=fcitx"'; echo 'export GTK_IM_MODULE=fcitx'; echo 'export QT_IM_MODULE=fcitx'; echo 'export DefaultIMModule=fcitx') >> ~/.xprofile
