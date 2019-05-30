@@ -41,4 +41,7 @@ xclip -sel clip < ~/.ssh/github_id_rsa.pub
 # Add symbolic link
 ./symbolic-link
 
+# Fix remote origin
+git remote set-url origin git@github.com:murajun1978/dotfiles.git
+
 exit 0
