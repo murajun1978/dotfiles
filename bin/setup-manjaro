@@ -21,12 +21,12 @@ makepkg -sci
 pushd
 
 # Install desktop applications
-yay -Sy google-chrome visual-studio-code-bin visual-studio-code-insiders slack-desktop zoom
+yay -Sy brave visual-studio-code-bin slack-desktop zoom hyper
 
 # Set default browser
-xdg-mime default google-chrome.desktop text/html
-xdg-mime default google-chrome.desktop x-scheme-handler/http
-xdg-mime default google-chrome.desktop x-scheme-handler/https
+xdg-mime default brave.desktop text/html
+xdg-mime default brave.desktop x-scheme-handler/http
+xdg-mime default brave.desktop x-scheme-handler/https
 
 # Setup anyenv
 git clone https://github.com/anyenv/anyenv ~/.anyenv
