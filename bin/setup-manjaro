@@ -21,7 +21,7 @@ makepkg -sci
 pushd
 
 # Install desktop applications
-yay -Sy --aur brave visual-studio-code-bin slack-desktop zoom hyper
+yay -Sy --aur brave-bin visual-studio-code-bin slack-desktop zoom hyper
 
 # Set default browser
 xdg-mime default brave.desktop text/html
