@@ -24,9 +24,9 @@ pushd
 yes | yay -Sy --aur brave-bin visual-studio-code-bin slack-desktop zoom hyper
 
 # Set default browser
-xdg-mime default brave.desktop text/html
-xdg-mime default brave.desktop x-scheme-handler/http
-xdg-mime default brave.desktop x-scheme-handler/https
+xdg-mime default brave-bin.desktop text/html
+xdg-mime default brave-bin.desktop x-scheme-handler/http
+xdg-mime default brave-bin.desktop x-scheme-handler/https
 
 # Setup anyenv
 git clone https://github.com/anyenv/anyenv ~/.anyenv
