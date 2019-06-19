@@ -7,11 +7,10 @@
   tool = vimdiff
   keepBackup = false
 [alias]
-  tree = log --graph --date=short --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'
+  lg = log --graph --date=short --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'
   pull = pull --rebase
   fetch = fetch --prune
   fpush = push --force-with-lease
   st = status
   ck = checkout
   br = branch
-  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches
