@@ -12,5 +12,7 @@
   fetch = fetch --prune
   fpush = push --force-with-lease
   st = status
+  cm = checkout master
+  cb = checkout -b
   ck = checkout
   br = branch
