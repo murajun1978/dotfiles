@@ -16,3 +16,4 @@
   cb = checkout -b
   ck = checkout
   br = branch
+  rb = rebase
