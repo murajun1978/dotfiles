@@ -11,8 +11,7 @@ sudo add-apt-repository -y ppa:git-core/ppa
 
 # Install packages
 sudo apt update
-sudo apt install -y wget curl uidmap gdebi whois tmux xclip fish git libgl1-mesa-glx libegl1-mesa libxcb-xtest0
-sudp apt install -y keychain
+sudo apt install -y wget curl uidmap gdebi whois tmux xclip fish git
 
 # Install Docker
 curl -fsSL https://get.docker.com/rootless | sh
