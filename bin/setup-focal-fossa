@@ -13,6 +13,9 @@ sudo add-apt-repository -y ppa:git-core/ppa
 sudo apt update
 sudo apt install -y wget curl uidmap gdebi whois tmux xclip fish git
 
+# Install Fisher
+curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
+
 # Install Docker
 curl -fsSL https://get.docker.com/rootless | sh
 echo 'export PATH=/home/murajun1978/bin:$PATH' >> ~/.bashrc
