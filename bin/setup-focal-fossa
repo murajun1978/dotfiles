@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+
+cd `dirname $0`
+
+# Switch key
+gsettings set org.gnome.desktop.input-sources xkb-options "['ctrl:swapcaps']"
+
+# Add repositories
+sudo apt-add-repository -y ppa:fish-shell/release-3
+sudo add-apt-repository -y ppa:git-core/ppa
+
+# Install packages
+sudo apt update
+sudo apt install -y wget curl uidmap gdebi whois tmux xclip fish git
+
+# Install Docker
+curl -fsSL https://get.docker.com/rootless | sh
+echo 'export PATH=/home/murajun1978/bin:$PATH' >> ~/.bashrc
+echo 'export DOCKER_HOST=unix:///run/user/1000/docker.sock' >> ~/.bashrc
+source ~/.bashrc
+systemctl --user start docker
+sudo loginctl enable-linger $(whoami)
+systemctl --user enable docker
+
+# Install Chrome
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+rm google-chrome-stable_current_amd64.deb
+
+# Install Zoom client
+wget https://zoom.us/client/latest/zoom_amd64.deb
+sudo dpkg -i zoom_amd64.deb
+rm zoom_amd64.deb
+
+# Install VSCode
+sudo snap install --classic code
+
+# Setup for GitHub
+ssh-keygen -t rsa -b 4096 -C "crazy.rendezvous.m.jun@gmail.com" -f ~/.ssh/github_id_rsa
+echo 'eval $(keychain --eval --agents ssh -Q --quiet ~/.ssh/github_id_rsa)' >> ~/.bashrc
+cp ../ssh/config ~/.ssh/
+
+# Copy public key to clip board
+xclip -sel clip < ~/.ssh/github_id_rsa.pub
+
+# Add symbolic link
+./symbolic-link
+
+# Fix remote origin
+git remote set-url origin git@github.com:murajun1978/dotfiles.git
+
+exit 0
