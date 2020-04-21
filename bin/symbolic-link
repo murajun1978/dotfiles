@@ -12,3 +12,6 @@ ln -s ~/dotfiles/git/gitconfig ~/.gitconfig
 
 # For tmux
 ln -s ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
+
+# For Fisher
+ln -s ~/dotfiles/fish/fishfile ~/.config/fish/fishfile
