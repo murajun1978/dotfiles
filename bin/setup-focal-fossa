@@ -39,6 +39,11 @@ wget https://zoom.us/client/latest/zoom_amd64.deb
 sudo dpkg -i zoom_amd64.deb
 rm zoom_amd64.deb
 
+# Install Slack
+wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.4.2-amd64.deb
+sudo dpkg -i slack-desktop-4.4.2-amd64.deb
+rm slack-desktop-4.4.2-amd64.deb
+
 # Install VSCode
 sudo snap install --classic code
 
