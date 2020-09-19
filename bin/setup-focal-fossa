@@ -35,21 +35,16 @@ sudo dpkg -i google-chrome-stable_current_amd64.deb
 rm google-chrome-stable_current_amd64.deb
 
 # Install Zoom client
-wget https://zoom.us/client/latest/zoom_amd64.deb
-sudo dpkg -i zoom_amd64.deb
-rm zoom_amd64.deb
+sudo snap install zoom-client
 
 # Install Slack
-wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.4.2-amd64.deb
-sudo dpkg -i slack-desktop-4.4.2-amd64.deb
-rm slack-desktop-4.4.2-amd64.deb
+sudo snap install slack --classic
 
 # Install VSCode
-sudo snap install --classic code
+sudo snap install code --classic
 
 # Setup for GitHub
 ssh-keygen -t rsa -b 4096 -C "crazy.rendezvous.m.jun@gmail.com" -f ~/.ssh/github_id_rsa
-echo 'eval $(keychain --eval --agents ssh -Q --quiet ~/.ssh/github_id_rsa)' >> ~/.bashrc
 cp ../ssh/config ~/.ssh/
 
 # Copy public key to clip board
